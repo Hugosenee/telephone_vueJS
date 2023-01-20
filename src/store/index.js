@@ -16,12 +16,13 @@ export default createStore({
         number: "0808080808"
       }
     ],
+    calls : []
   },
   getters: {
   },
   mutations: {
-        ajoutContact(state, contact) {
-      state.contacts.push(contact)
+      appel(state, contact) {
+      state.calls.push(contact)
     },
   },
   actions: {

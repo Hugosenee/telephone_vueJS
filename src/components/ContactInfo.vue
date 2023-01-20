@@ -18,7 +18,7 @@
         },
         methods: {
             appel(contact) {
-				console.log(contact)
+				this.$store.commit('appel', contact)
 			}
         }
     

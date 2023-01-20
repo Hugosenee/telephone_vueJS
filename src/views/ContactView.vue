@@ -33,8 +33,9 @@ export default {
         form.classList.toggle('active')
         },
     }
-
 }
+
+
 
 </script>
 <style>
