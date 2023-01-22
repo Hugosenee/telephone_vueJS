@@ -1,8 +1,9 @@
 <template lang="">
     <h1>Contact</h1>
-    <button @click='active'>+</button>
+    <!--<button @click='active'>+</button>-->
+    <router-link id="plus" to="/form">+</router-link>
 
-    <FormContact id="form" class="active" :contacts="contacts"/>
+
 
 
     <div class="cartes">
@@ -13,13 +14,11 @@
 
 </template>
 <script>
-import FormContact from '@/components/FormContact.vue'
 import ContactInfo from '@/components/ContactInfo.vue'
 
 export default {
     name: 'ContactView',
     components: {
-        FormContact,
         ContactInfo
     },
     computed: {
@@ -48,13 +47,10 @@ export default {
     justify-content: space-around;
 }
 
-#form {
-    position: absolute;
-    right: 360px;
-}
-
-.active{
-    display: none;
+#plus{
+    text-decoration: none;
+    font-size: 30px;
+    color: blue;
 }
 
 </style>
