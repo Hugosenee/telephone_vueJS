@@ -88,4 +88,8 @@ export default {
     button:hover{
         background-color: blue;
     }
+
+    #contactname{
+        font-size: x-large;
+    }
 </style>    
