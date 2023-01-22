@@ -27,8 +27,8 @@ export default createStore({
     appel(state, contact) {
       state.calls.push(contact)
     },
-    appelDirect(state, call) {
-      state.calls.push(call)
+    appelDirect(state, numero) {
+      state.calls.push(numero)
     }
   },
   actions: {

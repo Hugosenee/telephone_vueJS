@@ -3,10 +3,8 @@
         <h1>je suis un clavier</h1>
     </div>
     <div>
-        <form @submit.prevent="appelDirect">
-            <input id="inputnumero" type="number" placeholder="Number :" v-model="FormAppel.number">
-            <button type="submit">Appeler</button>
-        </form>
+        <p id="inputnumero"></p>    
+        <button @click="appelDirect">Appeler</button>
     </div>
     <div id="touche">
         <div @click="touches(1)">1</div>
@@ -31,26 +29,27 @@ export default {
 
     data() {
         return {
-        error: false,
-
-        FormAppel: {
-            number: null
-        },
-        }
+            error: false,
+        }   
+    },
+    computed: {
+        contacts() {
+				return this.$store.state.contacts
+			}
     },
     methods: {
             touches(numero) {
                 let inputnumero = document.getElementById('inputnumero')
-                console.log(numero)
-                inputnumero.value += numero
+                inputnumero.textContent += numero
             },
             appelDirect () {
-                this.$store.commit('appelDirect', this.FormAppel)
-
-                this.FormAppel = {
-                    number: null
-                }
-            }
+                let numero = document.getElementById('inputnumero')
+                //this.myArray.push(numero.textContent)
+                this.$store.commit('appelDirect', numero.textContent)
+                //console.log(this.myArray[0])
+                
+                numero.textContent = ""
+            },
         }
 }
 </script>

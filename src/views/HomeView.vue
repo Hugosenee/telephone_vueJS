@@ -4,8 +4,8 @@
   </div>
   <div v-for="call in calls" :key="call.name" class="calls">
 		<div @click="appel(call)">
-			<h2>{{ call.name }}</h2>
-			<span> {{ call.number }}</span>
+      <span  v-if=" call.name != undefined"> {{ call.name }}</span>
+      <span v-else > {{ call }} </span>
 		</div>
 	</div> 
 </template>
@@ -22,6 +22,7 @@ export default {
     methods: {
             appel(call) {
               this.$store.commit('appel', call)
+              console.log(this.calls)
 			}
         }
 }
