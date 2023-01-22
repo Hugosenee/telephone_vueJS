@@ -1,9 +1,7 @@
 <template >
     <div>
-        <h1>je suis un clavier</h1>
-    </div>
-    <div>
-        <p id="inputnumero"></p>    
+        <h1 id="inputnumero"></h1>  
+        <p id="contactname"></p>  
         <button @click="appelDirect">Appeler</button>
     </div>
     <div id="touche">
@@ -41,12 +39,17 @@ export default {
             touches(numero) {
                 let inputnumero = document.getElementById('inputnumero')
                 inputnumero.textContent += numero
+                let findNumber = this.contacts.find(contact => contact.number == inputnumero.textContent)
+                let contactname = document.getElementById('contactname')
+                if (findNumber != undefined) {
+                    contactname.innerHTML += (findNumber.name)
+                }   else {
+                    contactname.innerHTML = ''
+                }
             },
             appelDirect () {
                 let numero = document.getElementById('inputnumero')
-                //this.myArray.push(numero.textContent)
                 this.$store.commit('appelDirect', numero.textContent)
-                //console.log(this.myArray[0])
                 
                 numero.textContent = ""
             },
@@ -54,6 +57,7 @@ export default {
 }
 </script>
 <style>
+
     #touche{
         widows: 50%;
         height: 20vh;
@@ -61,6 +65,7 @@ export default {
         flex-wrap: wrap;
         justify-content: center;
         margin-top: 30px;
+        gap: 15px;
     }
 
     #touche div{
@@ -69,11 +74,18 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 2px solid grey;
+        border: 2px solid blue;
+        cursor: pointer;
+        border-top-left-radius: 30px;
+        border-bottom-right-radius: 30px;
         cursor: pointer;
     }
 
     #touche div:hover{
-        background-color: gray;
+        background-color: blue;
+    }
+
+    button:hover{
+        background-color: blue;
     }
 </style>    

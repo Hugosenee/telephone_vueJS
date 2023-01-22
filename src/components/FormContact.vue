@@ -32,14 +32,7 @@ export default {
 
     methods: {
         ajoutContact() {
-        if (this.FormContact.name == "" || this.FormContact.number == null) return
 
-        if (this.FormContact.name.length < 3) {
-            this.error = true
-            return
-        }
-
-        if (this.contacts.find(contact => contact.name == this.FormContact.name)) return
 
         this.$store.commit('ajoutContact', this.FormContact)
 
@@ -53,9 +46,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 form {
-    background-color: #42b983;
+    background-color: white;
+    border: 2px solid blue;
     width: 50vw;
     height: 50vh;
     margin: 20px auto;
@@ -80,5 +74,6 @@ input {
     padding: 10px;
     border-radius: 10px;
     border: none;
+    border: 2px solid blue;
 }
 </style>

@@ -42,6 +42,7 @@ export default {
 .cartes {
     margin: 50px;
     display: flex;
+    flex-direction: column;
     gap: 20px;
     flex-wrap: wrap;
     justify-content: space-around;

@@ -1,11 +1,12 @@
 <template>
   <div>
-    <h1>Bonjour ici c'est le journal</h1>
+    <h1>Journal d'appel</h1>
   </div>
   <div v-for="call in calls" :key="call.name" class="calls">
-		<div @click="appel(call)">
-      <span  v-if=" call.name != undefined"> {{ call.name }}</span>
-      <span v-else > {{ call }} </span>
+		<div class="appels" @click="appel(call)">
+      <h2  v-if=" call.name != undefined"> {{ call.name }}</h2>
+      <h2 v-else > {{ call }} </h2>
+      <p>Call</p>
 		</div>
 	</div> 
 </template>
@@ -30,4 +31,22 @@ export default {
 
 <style>
 
+    .appels {
+      display: flex;
+      border: 2px solid blue;
+      justify-content: space-evenly;
+      margin-top: 15px;
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+
+    .appels p {
+      font-weight: bolder;
+      font-size: larger;
+    }
+
+    .appels p:hover{
+      color: blue;
+      cursor: pointer;
+    }
 </style>
